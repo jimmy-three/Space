@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://crauhdsfe4ir7"]
+
+[ext_resource type="Texture2D" uid="uid://cw0chddm0uoj8" path="res://Resources/Uranus.jpg" id="1_1dyna"]
+[ext_resource type="Script" uid="uid://rjva3u5vu1pg" path="res://uranus.gd" id="2_6w77t"]
+[ext_resource type="Script" uid="uid://c2ypg31ax0wd7" path="res://thumbtack.gd" id="3_cnemd"]
+[ext_resource type="Texture2D" uid="uid://dgy34r7xo3d08" path="res://Resources/uranus.png" id="4_6w77t"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ifow5"]
+albedo_texture = ExtResource("1_1dyna")
+
+[sub_resource type="SphereMesh" id="SphereMesh_wvhbo"]
+material = SubResource("StandardMaterial3D_ifow5")
+radius = 1.268
+height = 2.536
+
+[node name="Uranus" type="MeshInstance3D" unique_id=715761618]
+mesh = SubResource("SphereMesh_wvhbo")
+script = ExtResource("2_6w77t")
+
+[node name="Label3D" type="Label3D" parent="." unique_id=322058711]
+visible = false
+billboard = 1
+text = "天王星"
+script = ExtResource("3_cnemd")
+
+[node name="Sprite3D" type="Sprite3D" parent="." unique_id=135720116]
+pixel_size = 0.0005
+billboard = 1
+texture = ExtResource("4_6w77t")
+script = ExtResource("3_cnemd")

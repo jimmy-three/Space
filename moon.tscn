@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://b2vwx27pp88c5"]
+
+[ext_resource type="Texture2D" uid="uid://ccf4fbhgucyd4" path="res://Resources/Moon.jpg" id="1_3tcni"]
+[ext_resource type="Script" uid="uid://c2ypg31ax0wd7" path="res://thumbtack.gd" id="2_rjvio"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_wvhbo"]
+radius = 0.087
+height = 0.173
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ifow5"]
+albedo_texture = ExtResource("1_3tcni")
+
+[node name="Moon" type="MeshInstance3D" unique_id=1082571515]
+mesh = SubResource("SphereMesh_wvhbo")
+surface_material_override/0 = SubResource("StandardMaterial3D_ifow5")
+
+[node name="Label3D" type="Label3D" parent="." unique_id=1293226665]
+process_priority = 1
+pixel_size = 0.002
+billboard = 1
+text = "月球"
+script = ExtResource("2_rjvio")
+
+[node name="Sprite3D" type="Sprite3D" parent="." unique_id=382290719]

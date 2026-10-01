@@ -1,0 +1,49 @@
+[gd_scene format=3 uid="uid://oxfkuj5cs8q6"]
+
+[ext_resource type="PackedScene" uid="uid://5xy56mo13huh" path="res://sun.tscn" id="1_0xm2m"]
+[ext_resource type="Script" uid="uid://bknmng3j0is5e" path="res://main.gd" id="1_1bvp3"]
+[ext_resource type="PackedScene" uid="uid://ou31v4a5isro" path="res://earth-moon system.tscn" id="2_h2yge"]
+[ext_resource type="PackedScene" uid="uid://bnk4x7hn3ok46" path="res://mercury.tscn" id="3_7mycd"]
+[ext_resource type="Script" uid="uid://b50co7aj2yc3m" path="res://camera_3d.gd" id="3_h2yge"]
+[ext_resource type="Script" uid="uid://8clqbdvwayic" path="res://mercury.gd" id="4_272bh"]
+
+[node name="main" type="Node3D" unique_id=1663073994]
+script = ExtResource("1_1bvp3")
+
+[node name="Sun" parent="." unique_id=1082571515 instance=ExtResource("1_0xm2m")]
+
+[node name="EarthMarker" type="Marker3D" parent="." unique_id=77214889]
+
+[node name="Earth" parent="EarthMarker" unique_id=156479465 instance=ExtResource("2_h2yge")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14960, 0, 0)
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=1962882846]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 176.57698)
+far = 100000.0
+script = ExtResource("3_h2yge")
+
+[node name="ScaleScroller" type="VScrollBar" parent="." unique_id=62084967]
+offset_left = 24.0
+offset_top = 424.0
+offset_right = 33.37001
+offset_bottom = 635.3
+max_value = 98.5
+value = 0.02
+
+[node name="MultiplierText" type="Label" parent="ScaleScroller" unique_id=454049269]
+layout_mode = 0
+offset_left = -22.0
+offset_top = 203.0
+offset_right = 74.0
+offset_bottom = 252.0
+rotation = -1.5707964
+text = "轨道缩放倍率
+"
+
+[node name="MercuryMarker" type="Marker3D" parent="." unique_id=1291923194]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5790, 0, 0)
+
+[node name="Mercury" parent="MercuryMarker" unique_id=47862598 instance=ExtResource("3_7mycd")]
+script = ExtResource("4_272bh")
+
+[connection signal="value_changed" from="ScaleScroller" to="." method="_on_v_scroll_bar_value_changed"]

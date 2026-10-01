@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://ou31v4a5isro"]
+
+[ext_resource type="Texture2D" uid="uid://rbqda3ubymvp" path="res://Resources/Earth.jpg" id="1_fc26q"]
+[ext_resource type="Script" uid="uid://cdcwxvac77d7c" path="res://earth_moon_system.gd" id="2_o5q7f"]
+[ext_resource type="Script" uid="uid://c2ypg31ax0wd7" path="res://thumbtack.gd" id="4_eui07"]
+[ext_resource type="Texture2D" uid="uid://dtascy8bqro3i" path="res://Resources/earth.png" id="4_o5q7f"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_wvhbo"]
+radius = 0.319
+height = 0.637
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ifow5"]
+albedo_texture = ExtResource("1_fc26q")
+
+[node name="Earth" type="MeshInstance3D" unique_id=1082571515]
+mesh = SubResource("SphereMesh_wvhbo")
+surface_material_override/0 = SubResource("StandardMaterial3D_ifow5")
+script = ExtResource("2_o5q7f")
+
+[node name="Label3D" type="Label3D" parent="." unique_id=1885336472]
+visible = false
+billboard = 1
+text = "地球"
+script = ExtResource("4_eui07")
+
+[node name="OrbitalAxis" type="Marker3D" parent="." unique_id=830042837]
+
+[node name="Sprite3D" type="Sprite3D" parent="." unique_id=752397571]
+pixel_size = 0.0005
+billboard = 1
+texture = ExtResource("4_o5q7f")
+script = ExtResource("4_eui07")

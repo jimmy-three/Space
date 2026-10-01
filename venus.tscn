@@ -1,0 +1,47 @@
+[gd_scene format=3 uid="uid://ccuqbawen4cva"]
+
+[ext_resource type="Texture2D" uid="uid://b1wucg3l652uj" path="res://Resources/Venus.jpg" id="1_mg830"]
+[ext_resource type="Script" uid="uid://c2ypg31ax0wd7" path="res://thumbtack.gd" id="2_5cuv3"]
+[ext_resource type="Script" uid="uid://cied04qpm8y71" path="res://venus.gd" id="2_xbhmx"]
+[ext_resource type="Texture2D" uid="uid://cj2n1ule7d7m5" path="res://Resources/Venus_surface.jpg" id="4_ov47y"]
+[ext_resource type="Texture2D" uid="uid://bdpbowr62hocr" path="res://Resources/venus.png" id="5_f5tbp"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mg830"]
+albedo_texture = ExtResource("1_mg830")
+
+[sub_resource type="SphereMesh" id="SphereMesh_wvhbo"]
+material = SubResource("StandardMaterial3D_mg830")
+radius = 0.303
+height = 0.605
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xbhmx"]
+transparency = 1
+depth_draw_mode = 1
+albedo_color = Color(1, 1, 1, 0.8627451)
+albedo_texture = ExtResource("4_ov47y")
+rim_enabled = true
+rim = 0.12
+
+[sub_resource type="SphereMesh" id="SphereMesh_ifow5"]
+material = SubResource("StandardMaterial3D_xbhmx")
+radius = 0.31
+height = 0.62
+
+[node name="Venus" type="MeshInstance3D" unique_id=361286240]
+mesh = SubResource("SphereMesh_wvhbo")
+script = ExtResource("2_xbhmx")
+
+[node name="Label3D" type="Label3D" parent="." unique_id=681245848]
+visible = false
+billboard = 1
+text = "金星"
+script = ExtResource("2_5cuv3")
+
+[node name="Atmosphere" type="MeshInstance3D" parent="." unique_id=897791969]
+mesh = SubResource("SphereMesh_ifow5")
+
+[node name="Sprite3D" type="Sprite3D" parent="." unique_id=1580988129]
+pixel_size = 0.0005
+billboard = 1
+texture = ExtResource("5_f5tbp")
+script = ExtResource("2_5cuv3")

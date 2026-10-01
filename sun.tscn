@@ -1,0 +1,36 @@
+[gd_scene format=3 uid="uid://5xy56mo13huh"]
+
+[ext_resource type="Texture2D" uid="uid://wbthho60h8lt" path="res://Resources/Sun.jpg" id="1_iveel"]
+[ext_resource type="Script" uid="uid://c2ypg31ax0wd7" path="res://thumbtack.gd" id="2_gtd5v"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_wvhbo"]
+radius = 34.785
+height = 69.57
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7dm0k"]
+albedo_texture = ExtResource("1_iveel")
+emission_enabled = true
+emission = Color(0.078431375, 0.078431375, 0, 1)
+emission_energy_multiplier = 2.5
+emission_texture = ExtResource("1_iveel")
+
+[node name="Sun" type="MeshInstance3D" unique_id=1082571515]
+mesh = SubResource("SphereMesh_wvhbo")
+surface_material_override/0 = SubResource("StandardMaterial3D_7dm0k")
+
+[node name="Label" type="Label" parent="." unique_id=476524478]
+visible = false
+offset_right = 40.0
+offset_bottom = 23.0
+text = "Textures by Solar System Scope
+https://creativecommons.org/licenses/by/4.0/"
+
+[node name="Label3D" type="Label3D" parent="." unique_id=271703680]
+billboard = 1
+text = "太阳"
+script = ExtResource("2_gtd5v")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="." unique_id=657519820]
+light_color = Color(0.9999997, 0.98653466, 0.95103174, 1)
+omni_range = 9999999.0
+omni_attenuation = 0.0

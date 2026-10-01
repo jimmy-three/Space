@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://bnk4x7hn3ok46"]
+
+[ext_resource type="Texture2D" uid="uid://bv37smui4g14p" path="res://Resources/Mercury.jpg" id="1_l4o7m"]
+[ext_resource type="Script" uid="uid://c2ypg31ax0wd7" path="res://thumbtack.gd" id="2_brsq0"]
+[ext_resource type="Texture2D" uid="uid://bvo2epkb5nsuk" path="res://Resources/mercury.png" id="3_brsq0"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ifow5"]
+albedo_texture = ExtResource("1_l4o7m")
+
+[sub_resource type="SphereMesh" id="SphereMesh_wvhbo"]
+material = SubResource("StandardMaterial3D_ifow5")
+radius = 0.122
+height = 0.244
+
+[node name="Mercury" type="MeshInstance3D" unique_id=47862598]
+mesh = SubResource("SphereMesh_wvhbo")
+
+[node name="Label3D" type="Label3D" parent="." unique_id=343669013]
+visible = false
+billboard = 1
+text = "水星"
+script = ExtResource("2_brsq0")
+
+[node name="Sprite3D" type="Sprite3D" parent="." unique_id=1024736522]
+pixel_size = 0.0005
+billboard = 1
+texture = ExtResource("3_brsq0")
+script = ExtResource("2_brsq0")

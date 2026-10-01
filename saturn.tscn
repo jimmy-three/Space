@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://b4jar3glre5jo"]
+
+[ext_resource type="Texture2D" uid="uid://qv5suh8ybqp2" path="res://Resources/Saturn.jpg" id="1_1i0fs"]
+[ext_resource type="Script" uid="uid://g5v8u4rlg4xv" path="res://saturn.gd" id="2_abjq1"]
+[ext_resource type="Script" uid="uid://c2ypg31ax0wd7" path="res://thumbtack.gd" id="3_cfn6t"]
+[ext_resource type="Texture2D" uid="uid://dw0s473la33xt" path="res://Resources/saturn.png" id="4_abjq1"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ifow5"]
+albedo_texture = ExtResource("1_1i0fs")
+
+[sub_resource type="SphereMesh" id="SphereMesh_wvhbo"]
+material = SubResource("StandardMaterial3D_ifow5")
+radius = 2.912
+height = 5.823
+
+[node name="Saturn" type="MeshInstance3D" unique_id=1400105671]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+mesh = SubResource("SphereMesh_wvhbo")
+script = ExtResource("2_abjq1")
+
+[node name="Label3D" type="Label3D" parent="." unique_id=707862630]
+visible = false
+billboard = 1
+text = "土星"
+script = ExtResource("3_cfn6t")
+
+[node name="Sprite3D" type="Sprite3D" parent="." unique_id=1995286809]
+pixel_size = 0.0005
+billboard = 1
+texture = ExtResource("4_abjq1")
+script = ExtResource("3_cfn6t")

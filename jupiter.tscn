@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://dkvp2usedai0f"]
+
+[ext_resource type="Script" uid="uid://b7oyug63ogcs3" path="res://jupiter.gd" id="1_mvbpq"]
+[ext_resource type="Texture2D" uid="uid://bobjjdqtqeh1k" path="res://Resources/Jupiter.jpg" id="1_si51w"]
+[ext_resource type="Script" uid="uid://c2ypg31ax0wd7" path="res://thumbtack.gd" id="3_i0uay"]
+[ext_resource type="Texture2D" uid="uid://fsdkrqlx2v41" path="res://Resources/jupiter.png" id="4_2ww3y"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_si51w"]
+albedo_texture = ExtResource("1_si51w")
+
+[sub_resource type="SphereMesh" id="SphereMesh_wvhbo"]
+material = SubResource("StandardMaterial3D_si51w")
+radius = 3.35
+height = 6.699
+
+[node name="Jupiter" type="MeshInstance3D" unique_id=1698816800]
+mesh = SubResource("SphereMesh_wvhbo")
+script = ExtResource("1_mvbpq")
+
+[node name="Label3D" type="Label3D" parent="." unique_id=997021792]
+visible = false
+billboard = 1
+text = "木星"
+script = ExtResource("3_i0uay")
+
+[node name="Sprite3D" type="Sprite3D" parent="." unique_id=909279627]
+pixel_size = 0.0005
+billboard = 1
+texture = ExtResource("4_2ww3y")
+script = ExtResource("3_i0uay")

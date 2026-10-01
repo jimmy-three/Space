@@ -1,0 +1,109 @@
+[gd_scene format=3 uid="uid://oxfkuj5cs8q6"]
+
+[ext_resource type="PackedScene" uid="uid://5xy56mo13huh" path="res://sun.tscn" id="1_0xm2m"]
+[ext_resource type="Script" uid="uid://bknmng3j0is5e" path="res://main.gd" id="1_1bvp3"]
+[ext_resource type="PackedScene" uid="uid://ou31v4a5isro" path="res://earth-moon system.tscn" id="2_h2yge"]
+[ext_resource type="PackedScene" uid="uid://bnk4x7hn3ok46" path="res://mercury.tscn" id="3_7mycd"]
+[ext_resource type="Script" uid="uid://b50co7aj2yc3m" path="res://camera_3d.gd" id="3_h2yge"]
+[ext_resource type="Script" uid="uid://8clqbdvwayic" path="res://mercury.gd" id="4_5vw27"]
+[ext_resource type="PackedScene" uid="uid://b2vwx27pp88c5" path="res://moon.tscn" id="6_272bh"]
+[ext_resource type="PackedScene" uid="uid://dqini1np3jd24" path="res://mars.tscn" id="7_4c57u"]
+[ext_resource type="PackedScene" uid="uid://ccuqbawen4cva" path="res://venus.tscn" id="7_5vw27"]
+[ext_resource type="Script" uid="uid://d17a3vd23cs7u" path="res://mars.gd" id="8_efxa6"]
+[ext_resource type="PackedScene" uid="uid://dkvp2usedai0f" path="res://jupiter.tscn" id="11_efxa6"]
+[ext_resource type="PackedScene" uid="uid://b4jar3glre5jo" path="res://saturn.tscn" id="12_dg77c"]
+[ext_resource type="PackedScene" uid="uid://crauhdsfe4ir7" path="res://uranus.tscn" id="13_ycdy4"]
+[ext_resource type="PackedScene" uid="uid://l5t7t8e8iks2" path="res://neptune.tscn" id="14_w48qg"]
+[ext_resource type="Texture2D" uid="uid://cqqxrx4kbpai" path="res://Resources/Stars.jpg" id="15_vivmo"]
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_jrdhs"]
+panorama = ExtResource("15_vivmo")
+
+[sub_resource type="Sky" id="Sky_ibjym"]
+sky_material = SubResource("PanoramaSkyMaterial_jrdhs")
+
+[sub_resource type="Environment" id="Environment_wvhbo"]
+background_mode = 2
+sky = SubResource("Sky_ibjym")
+glow_enabled = true
+
+[node name="main" type="Node3D" unique_id=1663073994]
+script = ExtResource("1_1bvp3")
+
+[node name="Sun" parent="." unique_id=1082571515 instance=ExtResource("1_0xm2m")]
+
+[node name="MercuryMarker" type="Marker3D" parent="." unique_id=1291923194]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5790, 0, 0)
+
+[node name="Mercury" parent="MercuryMarker" unique_id=47862598 instance=ExtResource("3_7mycd")]
+script = ExtResource("4_5vw27")
+
+[node name="VenusMarker" type="Marker3D" parent="." unique_id=1578369726]
+transform = Transform3D(1, 0, 0, 0, -0.99897057, -0.045363024, 0, 0.045363024, -0.99897057, 10820, 0, 0)
+
+[node name="Venus" parent="VenusMarker" unique_id=361286240 instance=ExtResource("7_5vw27")]
+
+[node name="EarthMarker" type="Marker3D" parent="." unique_id=77214889]
+transform = Transform3D(1, 0, 0, 0, 0.91775465, -0.3971479, 0, 0.3971479, 0.91775465, 14960, 0, 0)
+
+[node name="Earth" parent="EarthMarker" unique_id=156479465 instance=ExtResource("2_h2yge")]
+
+[node name="MarsMarker" type="Marker3D" parent="." unique_id=2080972640]
+transform = Transform3D(1, 0, 0, 0, 0.90482706, -0.42577928, 0, 0.42577928, 0.90482706, 22794, 0, 0)
+
+[node name="Mars" parent="MarsMarker" unique_id=1367285756 instance=ExtResource("7_4c57u")]
+script = ExtResource("8_efxa6")
+
+[node name="MoonMarker" type="Marker3D" parent="." unique_id=710660540]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 121, 0, 0)
+
+[node name="Moon" parent="MoonMarker" unique_id=803538006 instance=ExtResource("6_272bh")]
+transform = Transform3D(1.0000001, 0, 0, 0, 0.9996576, -0.02617695, 0, 0.026176956, 0.99965733, -0.0009765625, 0, -0.004)
+
+[node name="JupiterMarker" type="Marker3D" parent="." unique_id=1850944622]
+transform = Transform3D(1, 0, 0, 0, 0.99853665, -0.054078814, 0, 0.054078814, 0.99853665, 77854, 0, 0)
+
+[node name="Jupiter" parent="JupiterMarker" unique_id=1698816800 instance=ExtResource("11_efxa6")]
+
+[node name="SaturnMarker" type="Marker3D" parent="." unique_id=1849583999]
+transform = Transform3D(1, 0, 0, 0, 0.8933714, -0.449319, 0, 0.449319, 0.8933714, 142672, 0, 0)
+
+[node name="Saturn" parent="SaturnMarker" unique_id=1400105671 instance=ExtResource("12_dg77c")]
+
+[node name="UranusMarker" type="Marker3D" parent="." unique_id=1699293632]
+transform = Transform3D(1, 0, 0, 0, -0.13571563, -0.9907478, 0, 0.9907478, -0.13571563, 287097, 0, 0)
+
+[node name="Uranus" parent="UranusMarker" unique_id=715761618 instance=ExtResource("13_ycdy4")]
+
+[node name="NeptuneMarker" type="Marker3D" parent="." unique_id=1872063143]
+transform = Transform3D(1, 0, 0, 0, 0.88047737, -0.4740882, 0, 0.4740882, 0.88047737, 449839, 0, 0)
+
+[node name="Neptune" parent="NeptuneMarker" unique_id=299257116 instance=ExtResource("14_w48qg")]
+
+[node name="CameraFar" type="Camera3D" parent="." unique_id=1962882846]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 100)
+near = 0.1
+far = 100000.0
+script = ExtResource("3_h2yge")
+
+[node name="ScaleScroller" type="VScrollBar" parent="." unique_id=62084967]
+offset_left = 24.0
+offset_top = 424.0
+offset_right = 33.37001
+offset_bottom = 635.3
+max_value = 98.5
+
+[node name="MultiplierText" type="Label" parent="ScaleScroller" unique_id=454049269]
+layout_mode = 0
+offset_left = -22.0
+offset_top = 203.0
+offset_right = 74.0
+offset_bottom = 252.0
+rotation = -1.5707964
+text = "轨道缩放倍率
+"
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1026760312]
+environment = SubResource("Environment_wvhbo")
+
+[connection signal="value_changed" from="ScaleScroller" to="." method="_on_v_scroll_bar_value_changed"]

@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://l5t7t8e8iks2"]
+
+[ext_resource type="Texture2D" uid="uid://cjkxue55id264" path="res://Resources/Neptune.jpg" id="1_ktkx8"]
+[ext_resource type="Script" uid="uid://ml3ykr8uv3sc" path="res://neptune.gd" id="2_ms8sn"]
+[ext_resource type="Script" uid="uid://c2ypg31ax0wd7" path="res://thumbtack.gd" id="3_ocr2g"]
+[ext_resource type="Texture2D" uid="uid://c3pshirxj1sco" path="res://Resources/neptune.png" id="4_ocr2g"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ifow5"]
+albedo_texture = ExtResource("1_ktkx8")
+
+[sub_resource type="SphereMesh" id="SphereMesh_wvhbo"]
+material = SubResource("StandardMaterial3D_ifow5")
+radius = 1.231
+height = 2.462
+
+[node name="Neptune" type="MeshInstance3D" unique_id=299257116]
+mesh = SubResource("SphereMesh_wvhbo")
+script = ExtResource("2_ms8sn")
+
+[node name="Label3D" type="Label3D" parent="." unique_id=1600319704]
+visible = false
+billboard = 1
+text = "海王星"
+script = ExtResource("3_ocr2g")
+
+[node name="Sprite3D" type="Sprite3D" parent="." unique_id=1953833691]
+pixel_size = 0.0005
+billboard = 1
+texture = ExtResource("4_ocr2g")
+script = ExtResource("3_ocr2g")
